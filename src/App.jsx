@@ -1,25 +1,18 @@
 import { useState,useEffect } from 'react'
 import './App.css'
+import { Button } from './components/button'
+import { CofeIcon } from './assets/icon/cofeIcon'
 
 function App() {
 
-  const [data, setData ] = useState([]) 
   
-  useEffect(() => {
-      fetch("https://testserver-ql7j.onrender.com/posts")
-      .then((fetchData)=> fetchData.json(""))
-      .then((fData) => setData(fData))
-   
-  }, [setData])
-console.log(data);
+ 
   return (
     <>
-     {data.map((item) => {
-      return(
-        
-      <h2 key={item.id}>{item.title}</h2>
-      )
-     })}
+  <Button startIcon={CofeIcon} variant={"second"}>tugma</Button>
+  <Button endIcon={CofeIcon} variant={"frist"}>tugma</Button>
+  <Button variant={"text"}>tugma</Button>
+  <Button >tugma</Button>
     </>
   )
 }
