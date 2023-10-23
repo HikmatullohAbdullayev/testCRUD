@@ -1,7 +1,10 @@
-import { useState,useEffect } from 'react'
+// import { useState,useEffect } from 'react'
 import './App.css'
-import { Button } from './components/button'
-import { CofeIcon } from './assets/icon/cofeIcon'
+import { Route, Routes } from 'react-router-dom'
+import { MainLayout } from './layout/main.layout'
+import { About } from './pages/about'
+import { Edit } from './pages/edit'
+import { Create } from './pages/create'
 
 function App() {
 
@@ -9,10 +12,16 @@ function App() {
  
   return (
     <>
-  <Button startIcon={CofeIcon} variant={"second"}>tugma</Button>
-  <Button endIcon={CofeIcon} variant={"frist"}>tugma</Button>
-  <Button variant={"text"}>tugma</Button>
-  <Button >tugma</Button>
+    <div  className='container'>
+      <Routes >
+        <Route path="/"  element={<MainLayout/>}>
+          <Route index element={<About/>}/>
+          <Route path="edit" element={<Edit/>}/>
+          <Route path="create" element={<Create/>} />
+        </Route>
+      </Routes>
+    </div>
+ 
     </>
   )
 }
